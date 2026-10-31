@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="一个用 Canvas 实现的霓虹风贪吃蛇小游戏，支持键盘、触屏与方向键操作。">
+  <title>贪吃蛇 · Snake</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__logo" aria-hidden="true">🐍</span>
+        <span class="brand__name">贪吃蛇</span>
+      </div>
+      <div class="toolbar">
+        <button id="soundBtn" class="chip" type="button" aria-pressed="true">🔊 音效</button>
+        <button id="wrapBtn" class="chip" type="button" aria-pressed="false">🧱 穿墙：关</button>
+      </div>
+    </header>
+
+    <section class="hud" aria-label="游戏状态">
+      <div class="hud__item">
+        <span class="hud__label">得分</span>
+        <span id="score" class="hud__value">0</span>
+      </div>
+      <div class="hud__item">
+        <span class="hud__label">最高</span>
+        <span id="best" class="hud__value">0</span>
+      </div>
+      <div class="hud__item">
+        <span class="hud__label">速度</span>
+        <span id="level" class="hud__value">1</span>
+      </div>
+    </section>
+
+    <div class="stage">
+      <canvas id="board" width="600" height="600" role="img"
+              aria-label="贪吃蛇游戏区域，使用方向键或 WASD 控制方向"></canvas>
+      <div id="overlay" class="overlay">
+        <div class="overlay__panel">
+          <h1 id="overlayTitle" class="overlay__title">贪吃蛇</h1>
+          <p id="overlayText" class="overlay__text">方向键 / WASD 控制方向，空格暂停</p>
+          <button id="primaryBtn" class="btn" type="button">开始游戏</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dpad" aria-label="触屏方向控制">
+      <button class="dpad__btn" data-dir="up" type="button" aria-label="向上">▲</button>
+      <button class="dpad__btn" data-dir="left" type="button" aria-label="向左">◀</button>
+      <button class="dpad__btn" data-dir="down" type="button" aria-label="向下">▼</button>
+      <button class="dpad__btn" data-dir="right" type="button" aria-label="向右">▶</button>
+    </div>
+
+    <footer class="hint">
+      <span>方向键 / WASD 移动</span><span>空格 暂停</span><span>R 重开</span>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
